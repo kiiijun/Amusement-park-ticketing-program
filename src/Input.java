@@ -21,13 +21,13 @@ public class Input {
 		FileInputData = new ArrayList<>();
 	}
 
-	//입력 방식을 선택함
+	// 입력 방식을 선택함
 	public void SelectInputMethod() {
 		do {
 			System.out.println("입력 방식을 선택하세요.");
 			System.out.println("1. 키보드");
 			System.out.println("2. csv파일");
-			System.out.println("> ");
+			System.out.print("> ");
 			inputMethod = s.nextInt();
 			if (inputMethod != ConstantData.KEYBOARD && inputMethod != ConstantData.FILE) {
 				System.out.println("\n잘못 입력하셨습니다. \n");
@@ -148,14 +148,9 @@ public class Input {
 				System.out.println("\n잘못 입력하셨습니다. \n");
 			}
 		} while (nextStep != ConstantData.RESUME && nextStep != ConstantData.EXIT);
-		if (function == ConstantData.ADD_ORDER) {
-			System.out.println("추가 발권을 진행합니다.\n");
-		} else {
-			System.out.println("프로그램을 완전히 종료합니다. 감사합니다.");
-		}
 	}
 
-	//csv 파일의 정보를 읽어서 저장
+	// csv 파일의 정보를 읽어서 저장
 	public void inputByFile() {
 		File file = new File(
 				"C:\\Users\\snrm1\\eclipse-workspace\\TicketingSystem\\src\\TicketingSystem\\sampleInputData.csv");
@@ -168,8 +163,8 @@ public class Input {
 			String line = "";
 			while ((line = br.readLine()) != null) {
 				if (lineCount == 0) {
+					System.out.println("\ncsv파일의 OrderList를 읽어옵니다.\n");
 				} else {
-					System.out.println("csv파일의 OrderList를 읽어옵니다.");
 					System.out.println(lineCount + "번째 Order를 확인합니다.");
 					String[] spliter = line.split(",");
 					TicketInfo tempOrder = new TicketInfo();
@@ -183,7 +178,7 @@ public class Input {
 				lineCount++;
 
 			}
-			System.out.println("csv파일의 모든 OrderList를 읽어왔습니다.");
+			System.out.println("\ncsv파일의 모든 OrderList를 읽어왔습니다.\n");
 
 		} catch (IOException e) {
 			e.printStackTrace();

@@ -19,7 +19,7 @@ public class TicketSystem {
 			do {
 				ticketOrder = new TicketInfo();
 				inputProcess.SelectInputMethod();
-				if (inputProcess.inputMethod == ConstantData.KEYBOARD) { // 키보드 입력시 
+				if (inputProcess.inputMethod == ConstantData.KEYBOARD) { // 키보드 입력시
 					inputProcess.inputData(ticketOrder);
 					calculateProcess.calculateData(ticketOrder);
 					printProcess.printPrice(ticketOrder);
