@@ -9,45 +9,23 @@ import java.util.Scanner;
 // 시스템의 입력부를 담당하는 class
 public class Input {
 	public Scanner s = new Scanner(System.in);
-	public int nextStep; 
+	public int nextStep;
 	public int inputMethod;
-//	public int fileIndex;
-	
+
 	public Input() {
 		nextStep = 0;
 		inputMethod = 0;
-//		fileIndex = 0;
 	}
 
-	
-	public void inputData(TicketInfo ticketOrder) throws IOException {
-	//	checkInputMethod();
-	//	if (inputMethod == ConstantData.KEYBOARD) {
-			inputTicketSelect(ticketOrder);
-			inputTicketOption(ticketOrder);
-			inputRRN(ticketOrder);
-			inputQuantity(ticketOrder);
-			inputPreferential(ticketOrder);
-	//	} else if (inputMethod == ConstantData.FILE) {
-	//		InputByFile(ticketOrder);
-	//	}
+	// 사용자로 부터 입력받는 기능의 집합
+	public void inputData(TicketInfo ticketOrder) {
+		inputTicketSelect(ticketOrder);
+		inputTicketOption(ticketOrder);
+		inputRRN(ticketOrder);
+		inputQuantity(ticketOrder);
+		inputPreferential(ticketOrder);
 	}
-	
-	//입력 방식을 선택함 (키보드 / 파일)
-//	public void checkInputMethod() {
-//		do {
-//			System.out.println("입력방식을 선택하세요.");
-//			System.out.println("1. 키보드");
-//			System.out.println("2. 파일");
-//			System.out.print("> ");
-//			inputMethod = s.nextInt();
-//			if (inputMethod != ConstantData.KEYBOARD && inputMethod != ConstantData.FILE) {
-//				System.out.println("\n잘못 입력하셨습니다. \n");
-//			}
-//		} while (inputMethod != ConstantData.KEYBOARD && inputMethod != ConstantData.FILE);
-//
-//	}
-	
+
 	// 권종을 선택함 (종합 / 파크)
 	public void inputTicketSelect(TicketInfo ticketOrder) {
 		do {
@@ -64,13 +42,13 @@ public class Input {
 		} while (ticketOrder.getTicketSelect() != ConstantData.FULL
 				&& ticketOrder.getTicketSelect() != ConstantData.PARK);
 	}
-	
+
 	// 이용시간을 선택함 (하루/ 오후 4시 이후)
 	public void inputTicketOption(TicketInfo ticketOrder) {
 		do {
 			System.out.println("이용시간을 선택하세요.");
-			System.out.println("1. 1DAY");
-			System.out.println("2. AFTER4");
+			System.out.println("1. 주간권(1Day)");
+			System.out.println("2. 야간권(After4)");
 			System.out.print("> ");
 			ticketOrder.setTicketOption(s.nextInt());
 			System.out.println();
@@ -81,7 +59,7 @@ public class Input {
 		} while (ticketOrder.getTicketOption() != ConstantData.ONE_DAY
 				&& ticketOrder.getTicketOption() != ConstantData.AFTER_FOUR);
 	}
-	
+
 	// 주민번호를 입력함 (13자리)
 	public void inputRRN(TicketInfo ticketOrder) {
 		do {
@@ -94,8 +72,8 @@ public class Input {
 			}
 		} while (ticketOrder.getRrn().length() != 13);
 	}
-	
-	//발권 개수를 입력함 
+
+	// 발권 개수를 입력함
 	public void inputQuantity(TicketInfo ticketOrder) {
 		System.out.println("발권 개수를 입력하세요.");
 		System.out.print("> ");
@@ -103,7 +81,7 @@ public class Input {
 		System.out.println();
 	}
 
-	//우대사항을 선택함 (없음/장애인/국가유공자/휴가장병/임산부/다둥이)
+	// 우대사항을 선택함 (없음/장애인/국가유공자/휴가장병/임산부/다둥이)
 	public void inputPreferential(TicketInfo ticketOrder) {
 		do {
 			if (ticketOrder.getAge() < 65) {
@@ -151,30 +129,10 @@ public class Input {
 				System.out.println("\n잘못 입력하셨습니다. \n");
 			}
 		} while (nextStep != ConstantData.RESUME && nextStep != ConstantData.EXIT);
+		if (function == ConstantData.ADD_ORDER) {
+			System.out.println("추가 발권을 진행합니다.\n");
+		} else {
+			System.out.println("프로그램을 완전히 종료합니다. 감사합니다.");
+		}
 	}
-
-	//파일로 부터의 입력을 받아 저장.
-//	public boolean InputByFile(TicketInfo ticketOrder) throws IOException {
-//		System.out.println("input파일을 읽어옵니다.");
-//		BufferedReader reader = new BufferedReader(new FileReader(
-//				"C:\\Users\\user\\eclipse-workspace\\TicketingSystem\\src\\TicketingSystem\\TestInput.csv"));
-//		String line;
-//		int lineCount = 0;
-//		while ((line = reader.readLine()) != null) {
-//			if(fileIndex == lineCount) {
-//			String[] spliter = line.split(",");
-//			ticketOrder.setTicketSelect(Integer.parseInt(spliter[ConstantData.F_TICKET_SELECT]));
-//			ticketOrder.setTicketOption(Integer.parseInt(spliter[ConstantData.F_TICKET_OPTION]));
-//			ticketOrder.setRrn(spliter[ConstantData.F_TICKET_RRN]);
-//			System.out.println(spliter[ConstantData.F_TICKET_RRN]);
-//			ticketOrder.setQuantity(Integer.parseInt(spliter[ConstantData.F_TICKET_QUANTITY]));
-//			ticketOrder.setPreferential(Integer.parseInt(spliter[ConstantData.F_TICKET_PREFERENTIAL]));
-//			}
-//			lineCount++;
-//		}if(ticketOrder.getQuantity() == 0) {
-//			return false;
-//		}
-//		fileIndex++;
-//		return true;
-//	}
 }

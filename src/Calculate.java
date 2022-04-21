@@ -6,26 +6,23 @@ import java.util.List;
 
 // 시스템의 계산부를 담당하는 class
 public class Calculate {
-	
-	//만나이, 나이별 요금제, 티켓 금액 계산 묶음
+
+	// 만나이, 나이별 요금제, 티켓 금액 계산 묶음
 	public void calculateData(TicketInfo ticketOrder) {
 		calculateAge(ticketOrder);
 		caculateTicketAge(ticketOrder);
 		calculateTicketPrice(ticketOrder);
 	}
-	
-	
+
 	// 만 나이 계산
 	public void calculateAge(TicketInfo ticketOrder) {
 		SimpleDateFormat todayFormat = new SimpleDateFormat("yyyyMMdd");
 		Calendar today = Calendar.getInstance();
 		ticketOrder.setOrderDate(todayFormat.format(today.getTime()));
 		int Currentyear = today.get(Calendar.YEAR);
-		int CurrentMonth = today.get(Calendar.MONTH)+1;
+		int CurrentMonth = today.get(Calendar.MONTH) + 1;
 		int CurrentDay = today.get(Calendar.DATE);
 		int yearOfBirth = 0, monthOfBirth = 0, dayOfBirth = 0;
-		
-		
 
 		if (Character.getNumericValue(ticketOrder.getRrn().charAt(6)) == 3
 				|| Character.getNumericValue(ticketOrder.getRrn().charAt(6)) == 4) {
@@ -62,7 +59,7 @@ public class Calculate {
 		}
 	}
 
-	//티켓 금액 계산
+	// 티켓 금액 계산
 	public void calculateTicketPrice(TicketInfo ticketOrder) {
 		if (ticketOrder.getTicketAge() == ConstantData.AGE_FREE) {
 			ticketOrder.setTicketPrice(ConstantData.FREE);
@@ -128,8 +125,8 @@ public class Calculate {
 			ticketOrder.setTicketPrice((int) (ticketOrder.getTicketPrice() * ConstantData.TICKET_PREFERENTIAL_3));
 		}
 	}
-	
-	//모든 주문에 대한 총액 계산
+
+	// 모든 주문에 대한 총액 계산
 	public int CalculateTotalPrice(List<TicketInfo> orderList) {
 		int totalPrice = 0;
 		for (int index = 0; index < orderList.size(); index++) {

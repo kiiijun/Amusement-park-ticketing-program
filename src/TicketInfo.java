@@ -8,11 +8,11 @@ public class TicketInfo {
 	private int ticketAge; // 나이별 요금제
 	private int quantity; // 수량
 	private int preferential; // 우대사항
-	private int ticketPrice; //이용권 금액
+	private int ticketPrice; // 이용권 금액
 	private String rrn; // 주민등록번호
 	private int age; // 만나이
-	private String orderDate; //발권일자
-	
+	private String orderDate; // 발권일자
+
 	public TicketInfo() {
 		ticketSelect = 0;
 		ticketOption = 0;
@@ -20,7 +20,7 @@ public class TicketInfo {
 		quantity = 0;
 		preferential = 0;
 		ticketPrice = 0;
-		rrn ="";
+		rrn = "";
 		age = 0;
 		orderDate = "";
 	}

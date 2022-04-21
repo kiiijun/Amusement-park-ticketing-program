@@ -1,6 +1,5 @@
 package TicketingSystem;
 
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
@@ -13,8 +12,8 @@ public class TicketSystem {
 	public Print printProcess;
 	public Calculate calculateProcess;
 
-	//시스템의 구동을 담당
-	public void startSystem() throws IOException {
+	// 시스템의 구동을 담당
+	public void startSystem() {
 		resetTicketSystem();
 		do {
 			resetTicketSystem();
@@ -32,17 +31,17 @@ public class TicketSystem {
 			inputProcess.inputNextStep(ConstantData.NEW_ORDER);
 		} while (inputProcess.nextStep == ConstantData.RESUME);
 	}
-	
+
 	public void endSystem() {
 		System.exit(0);
 	}
 
-	//list에 주문내역을 추가함
+	// list에 주문내역을 추가함
 	public void addList() {
 		orderList.add(ticketOrder);
 	}
 
-	//시스템의 인자를 리셋함
+	// 시스템의 인자를 리셋함
 	public void resetTicketSystem() {
 		orderList = new ArrayList<TicketInfo>();
 		ticketOrder = new TicketInfo();
