@@ -1,14 +1,29 @@
 package TicketingSystem;
 
+// 주문 정보 형식을 담당하는  class
 public class TicketInfo {
-	private int ticketSelect;
-	private int ticketOption;
-	private int ticketAge;
-	private int quantity;
-	private int preferential;
-	private int ticketPrice;
-	private String rrn;
-	private int age;
+
+	private int ticketSelect; // 권종
+	private int ticketOption; // 이용시간
+	private int ticketAge; // 나이별 요금제
+	private int quantity; // 수량
+	private int preferential; // 우대사항
+	private int ticketPrice; //이용권 금액
+	private String rrn; // 주민등록번호
+	private int age; // 만나이
+	private String orderDate; //발권일자
+	
+	public TicketInfo() {
+		ticketSelect = 0;
+		ticketOption = 0;
+		ticketAge = 0;
+		quantity = 0;
+		preferential = 0;
+		ticketPrice = 0;
+		rrn ="";
+		age = 0;
+		orderDate = "";
+	}
 
 	public int getTicketSelect() {
 		return ticketSelect;
@@ -72,5 +87,13 @@ public class TicketInfo {
 
 	public void setAge(int age) {
 		this.age = age;
+	}
+
+	public String getOrderDate() {
+		return orderDate;
+	}
+
+	public void setOrderDate(String orderDate) {
+		this.orderDate = orderDate;
 	}
 }
