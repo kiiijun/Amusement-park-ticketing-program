@@ -40,15 +40,18 @@
  
 ## 프로그램 구동 화면
 - .csv 파일 입력
->.csv file sample 
+> .csv file sample 
 <img width="300" alt="sample_CSVFILE" src="https://user-images.githubusercontent.com/102117360/164531692-8c0ceb71-1ad7-49ae-aee7-5100b967855e.png">
+
 > 프로그램 구동 화면
 <img width="418" alt="inputCSV" src="https://user-images.githubusercontent.com/102117360/164535006-813c23bc-7ff6-444d-ac05-9bbb0dcfa43c.png">
+
 > Result.txt 파일 저장
 <img width="371" alt="result" src="https://user-images.githubusercontent.com/102117360/164531719-4f12d176-0e84-4b00-b1b6-df558e67c8ea.png">
  
 - 키보드 입력
 > 프로그램 구동 화면
 <img width="407" alt="keyboard" src="https://user-images.githubusercontent.com/102117360/164535014-34e04378-eefe-4013-831b-5aac6031bec8.png">
+
 >Result.txt 파일 저장
 <img width="358" alt="result2" src="https://user-images.githubusercontent.com/102117360/164535016-dc6e0981-e342-462e-9b3f-de8a62e3a92a.png">
