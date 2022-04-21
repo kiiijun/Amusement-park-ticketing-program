@@ -4,7 +4,7 @@
 
 ## 주요 기능
  - 입력 기능 ( Keyboard / .csv File )
- >키보드 입력 시 권종, 이용시간, 주민등록번호, 수량, 우대사항을 입력합니다.
+ > 키보드 입력 시 권종, 이용시간, 주민등록번호, 수량, 우대사항을 입력합니다.
  .csv 파일을 통한 입력 시  권종, 이용 시간, 주민등록번호, 수량, 우대 사항 순으로 파일에서 정보를 읽어옵니다.
  
  - 출력 기능 ( CMD / .txt File )
@@ -34,20 +34,20 @@
 > TicketInfo 객체의 정보를 받아서 나이 별 요금제를 계산합니다. 
 > 우대 사항에 대한 할인율을 계산합니다.
 > 총 금액 및 각각의 발권 금액을 계산합니다.
- - Print
- > TicketInfo가 저장된 List를 받아와서 발권 내역을 콘솔 화면에  출력합니다.
- > Result.txt 파일에 발권 내역을 저장합니다.
+- Print
+> TicketInfo가 저장된 List를 받아와서 발권 내역을 콘솔 화면에  출력합니다.
+> Result.txt 파일에 발권 내역을 저장합니다.
  
- ## 프로그램 구동 화면
- - .csv 파일 입력
- >.csv file sample 
- <img width="300" alt="sample_CSVFILE" src="https://user-images.githubusercontent.com/102117360/164531692-8c0ceb71-1ad7-49ae-aee7-5100b967855e.png">
+## 프로그램 구동 화면
+- .csv 파일 입력
+>.csv file sample 
+<img width="300" alt="sample_CSVFILE" src="https://user-images.githubusercontent.com/102117360/164531692-8c0ceb71-1ad7-49ae-aee7-5100b967855e.png">
 > 프로그램 구동 화면
 <img width="418" alt="inputCSV" src="https://user-images.githubusercontent.com/102117360/164535006-813c23bc-7ff6-444d-ac05-9bbb0dcfa43c.png">
- > Result.txt 파일 저장
+> Result.txt 파일 저장
 <img width="371" alt="result" src="https://user-images.githubusercontent.com/102117360/164531719-4f12d176-0e84-4b00-b1b6-df558e67c8ea.png">
  
- - 키보드 입력
+- 키보드 입력
 > 프로그램 구동 화면
 <img width="407" alt="keyboard" src="https://user-images.githubusercontent.com/102117360/164535014-34e04378-eefe-4013-831b-5aac6031bec8.png">
 >Result.txt 파일 저장
