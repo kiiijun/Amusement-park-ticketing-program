@@ -2,7 +2,6 @@ package TicketingSystem;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Scanner;
 
 // 시스템의 구동 및 제어를 담당하는 class
 public class TicketSystem {
@@ -19,13 +18,23 @@ public class TicketSystem {
 			resetTicketSystem();
 			do {
 				ticketOrder = new TicketInfo();
-				inputProcess.inputData(ticketOrder);
-				calculateProcess.calculateData(ticketOrder);
-				printProcess.printPrice(ticketOrder);
-				addList();
+				inputProcess.SelectInputMethod();
+				if (inputProcess.inputMethod == ConstantData.KEYBOARD) { // 키보드 입력시 
+					inputProcess.inputData(ticketOrder);
+					calculateProcess.calculateData(ticketOrder);
+					printProcess.printPrice(ticketOrder);
+					addList();
+				} else if (inputProcess.inputMethod == ConstantData.FILE) { // file 입력시
+					inputProcess.inputByFile();
+					for (int index = 0; index < inputProcess.FileInputData.size(); index++) {
+						ticketOrder = new TicketInfo();
+						ticketOrder = inputProcess.FileInputData.get(index);
+						calculateProcess.calculateData(ticketOrder);
+						addList();
+					}
+				}
 				inputProcess.inputNextStep(ConstantData.ADD_ORDER);
 			} while (inputProcess.nextStep == ConstantData.RESUME);
-
 			printProcess.printTicketInfo(orderList, calculateProcess.CalculateTotalPrice(orderList));
 			printProcess.printFile(orderList);
 			inputProcess.inputNextStep(ConstantData.NEW_ORDER);

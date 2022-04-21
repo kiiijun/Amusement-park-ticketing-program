@@ -1,12 +1,9 @@
 package TicketingSystem;
 
-import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.File;
-import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.io.OutputStreamWriter;
 import java.util.List;
 
 // 시스템의 출력부를 담당하는 class

@@ -1,20 +1,38 @@
 package TicketingSystem;
 
 import java.io.BufferedReader;
-import java.io.FileNotFoundException;
+import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 // 시스템의 입력부를 담당하는 class
 public class Input {
 	public Scanner s = new Scanner(System.in);
-	public int nextStep;
-	public int inputMethod;
+	public int nextStep; // 다음 절차 확인 변수
+	public int inputMethod; // 입력수단 확인 변수
+	public List<TicketInfo> FileInputData; // csv 파일 데이터 저장용 List
 
 	public Input() {
 		nextStep = 0;
 		inputMethod = 0;
+		FileInputData = new ArrayList<>();
+	}
+
+	//입력 방식을 선택함
+	public void SelectInputMethod() {
+		do {
+			System.out.println("입력 방식을 선택하세요.");
+			System.out.println("1. 키보드");
+			System.out.println("2. csv파일");
+			System.out.println("> ");
+			inputMethod = s.nextInt();
+			if (inputMethod != ConstantData.KEYBOARD && inputMethod != ConstantData.FILE) {
+				System.out.println("\n잘못 입력하셨습니다. \n");
+			}
+		} while (inputMethod != ConstantData.KEYBOARD && inputMethod != ConstantData.FILE);
 	}
 
 	// 사용자로 부터 입력받는 기능의 집합
@@ -24,6 +42,7 @@ public class Input {
 		inputRRN(ticketOrder);
 		inputQuantity(ticketOrder);
 		inputPreferential(ticketOrder);
+
 	}
 
 	// 권종을 선택함 (종합 / 파크)
@@ -135,4 +154,40 @@ public class Input {
 			System.out.println("프로그램을 완전히 종료합니다. 감사합니다.");
 		}
 	}
+
+	//csv 파일의 정보를 읽어서 저장
+	public void inputByFile() {
+		File file = new File(
+				"C:\\Users\\snrm1\\eclipse-workspace\\TicketingSystem\\src\\TicketingSystem\\sampleInputData.csv");
+		FileReader fr = null;
+		BufferedReader br = null;
+		int lineCount = 0;
+		try {
+			fr = new FileReader(file);
+			br = new BufferedReader(fr);
+			String line = "";
+			while ((line = br.readLine()) != null) {
+				if (lineCount == 0) {
+				} else {
+					System.out.println("csv파일의 OrderList를 읽어옵니다.");
+					System.out.println(lineCount + "번째 Order를 확인합니다.");
+					String[] spliter = line.split(",");
+					TicketInfo tempOrder = new TicketInfo();
+					tempOrder.setTicketSelect(Integer.parseInt(spliter[ConstantData.F_TICKET_SELECT]));
+					tempOrder.setTicketOption(Integer.parseInt(spliter[ConstantData.F_TICKET_OPTION]));
+					tempOrder.setRrn(spliter[ConstantData.F_TICKET_RRN]);
+					tempOrder.setQuantity(Integer.parseInt(spliter[ConstantData.F_TICKET_QUANTITY]));
+					tempOrder.setPreferential(Integer.parseInt(spliter[ConstantData.F_TICKET_PREFERENTIAL]));
+					FileInputData.add(tempOrder);
+				}
+				lineCount++;
+
+			}
+			System.out.println("csv파일의 모든 OrderList를 읽어왔습니다.");
+
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+	}
+
 }
