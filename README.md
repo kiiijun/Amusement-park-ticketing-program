@@ -26,7 +26,7 @@
 - ConstantData 
 > 프로그램에서 사용하는 상수 값을 정의합니다.  
 - TicketInfo
-> 발권시 필요한 정보를 인자로 정의하며, 각각의 인자에 대한  getter()와 setter() Method를 제공합니다.  
+> 발권시 필요한 정보를 변수로 정의하며, 각각의 변수에 대한  getter()와 setter() Method를 제공합니다.  
 - Input
 > 사용자의 입력을 처리하며, TicketInfo 객체에 해당 정보를 저장합니다.  
 > 프로그램의 분기별 사용자의 입력을 처리합니다.  
